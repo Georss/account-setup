@@ -1,0 +1,27 @@
+.popin {
+    position: absolute;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-left: 100px;
+    padding-top: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 214px;
+    height: 175px;
+    border-radius: 5px;
+    background-color: #ffffff;
+}
+.box-color-picker {
+    width: 36px;
+    height: 36px;
+    border-radius: 5px;
+    border: solid 1px #e8ebf0;
+    cursor: pointer;
+}
+.border-active {
+    border: solid 1px #48bdff;
+}

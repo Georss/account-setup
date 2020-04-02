@@ -1,0 +1,138 @@
+.Aside-BG {
+    width: 400px;
+    /* height: 1200px; */
+    background-color: #414966;
+  }
+.Aside-MR {
+    padding: 25px 25px 19px;
+}
+.Account-setup {
+    font-family: Roboto;
+    font-size: 48px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #ffffff;
+    margin: 0px;
+}
+.Info-Account {
+    margin: 25px 8px 25px 22px;
+    overflow-y: scroll;
+}
+
+.Info-Account::-webkit-scrollbar {
+	width: 6px;
+    height: auto;
+	/* background-color: #F5F5F5; */
+}
+
+.Info-Account::-webkit-scrollbar-thumb {
+	border-radius: 3px;
+    background-color: #a8a8a8;
+}
+
+.Rectangle {
+    /* padding-top: 15px;
+    padding-bottom: 15px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 350px;
+    /* height: auto; */
+    border: solid 1px #ffffff;
+    margin-bottom: 20px;
+}
+h4, h3, p, input, textarea, select {
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #ffffff;
+    margin: 0px;
+}
+h3 {
+    font-size: 24px;
+}
+p {
+    font-size: 12px;
+}
+textarea {
+    resize: vertical;
+    resize: none;
+    /* outline: none; */
+}
+input, select, textarea {
+    border: solid 1px;
+    color: #000000;
+}
+.Image-Upload {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.Button-Upload {
+    width: 195px;
+    height: 44px;
+    background-color: #32a8cd;
+    text-align: center;
+}
+.Upload {
+    padding-top:  10px;
+}
+.Container-Button-Save {
+    margin-left: 25px;
+    padding-bottom: 50px;
+}
+.Button-Save {
+    width: 175px;
+    height: 44px;
+    background-color: #32a436;
+    text-align: center;
+    cursor: pointer;
+}
+.Save {
+    padding-top:  10px;
+}
+.Account-Setup-Image {
+    width: 110px;
+    height: 110px;
+}
+.text-button-upload {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.text-color {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.color-container {
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+}
+.box-color-1, .box-color-2 {
+    width: 36px;
+    height: 36px;
+    border-radius: 5px;
+    border: solid 1px #e8ebf0;
+    cursor: pointer;
+}
+.box-color-1 {
+    background-color: #7e57c2;
+}
+.box-color-2 {
+    background-color: #5c6bc0;
+}
+.uploade-image {
+    pointer-events: none;
+}
+.image-target{
+    cursor: pointer;
+}

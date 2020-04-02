@@ -1,0 +1,9 @@
+.Account-Setup {
+    display: flex;
+    flex-direction: row;
+    width: 1440px;
+    background-color: #ffffff;
+    border: solid 1px;
+  }
+
+
