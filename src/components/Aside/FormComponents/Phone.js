@@ -5,7 +5,7 @@ const Phone = ({ phone, change }) => (
     <div className="Phone">
         <h4>Phone number</h4>
         <input
-            type="text"
+            type="telNo"
             name="phone"
             value={phone}
             onChange={change}
