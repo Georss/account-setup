@@ -12,11 +12,10 @@ class ErrorButton extends Component {
         return (
             <div
                 className={`Error-BG ${this.props.formError ? '' : 'Error-DP'}`}
-                onClick={this.remove}
             >
                 <h5 className="Error-Text">All fields are required</h5>
                 <div className="Icon-Close">
-                    <CloseIcon style={{ color: '#ffffff' }} />
+                    <CloseIcon style={{ color: '#ffffff' }} onClick={this.remove} />
                 </div>
             </div>
         );
