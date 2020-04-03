@@ -9,6 +9,13 @@ class ErrorButton extends Component {
     }
 
     render() {
+        
+        if (this.props.formError) {
+            setTimeout(() => {
+                this.props.closeBox(false);
+            }, 5000);
+        }
+        
         return (
             <div
                 className={`Error-BG ${this.props.formError ? '' : 'Error-DP'}`}
