@@ -80,7 +80,7 @@ class Aside extends Component {
                     <h1 className="Account-setup">Account setup</h1>
                 </div>
                 <div className="Info-Account">
-                    <div className="Profil-Image-Color Rectangle">
+                    <div className="Profil-Image-Color">
                         <ImageUpload />
                         <ColorSelector />
                     </div>
