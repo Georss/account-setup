@@ -72,7 +72,7 @@ const ColorSelector = ({
                 />
                 <PopinColor
                     show={popin2}
-                    dispatch={getColor2}
+                    getColor={getColor2}
                 />
             </div>
         </div>
