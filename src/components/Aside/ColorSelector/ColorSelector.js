@@ -68,7 +68,7 @@ const ColorSelector = ({
             <div className="Popin-ref" ref={ref1}>
                 <PopinColor
                     show={popin1}
-                    dispatch={getColor1}
+                    getColor={getColor1}
                 />
                 <PopinColor
                     show={popin2}
