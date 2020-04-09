@@ -1,65 +1,102 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-import './ColorSelector.css';
-import PopinColor1 from './PopinColor/PopinColor1/PopinColor1';
-import PopinColor2 from './PopinColor/PopinColor2/PopinColor2';
+import React, { useEffect, useRef, useState } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { colorSelect1, colorSelect2 } from '../../../actions';
+import PopinColor from './PopinColor/PopinColor';
+import BoxColor from './PopinColor/BoxColor';
 
+const title = ['Color 1', 'Color 2'];
 
-function ColorSelector() {
-    const [togglePopin1, setTogglePopin1] = useState(false);
-    const [togglePopin2, setTogglePopin2] = useState(false);
-    const backgroundeColor1 = useSelector(state => state.colorSelect1);
-    const backgroundeColor2 = useSelector(state => state.colorSelect2);
+const ColorSelector = ({
+    getColor1, getColor2, backgroundeColor1, backgroundeColor2,
+}) => {
+    const [popin1, setPopin1] = useState(false);
+    const [popin2, setPopin2] = useState(false);
+    const ref1 = useRef(null);
+
+    const closePopin = () => {
+        if (popin1) {
+            setPopin1(!popin1);
+        }
+        if (popin2) {
+            setPopin2(!popin2);
+        }
+    };
+
+    const handleClickOutside = (event) => {
+        if (
+            ref1.current &&
+            !ref1.current.contains(event.target)
+        ) {
+            closePopin();
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener('click', handleClickOutside, false);
+
+        return () => {
+            document.removeEventListener('click', handleClickOutside, false);
+        };
+    });
 
     const showPopin1 = () => {
-        const show = !togglePopin1;
-
-        if (togglePopin2) {
-            const hidden = !togglePopin2;
-
-            setTogglePopin2(hidden);
-        }
-
-        setTogglePopin1(show);
+        setPopin1(!popin1);
+        setPopin2(false);
     };
 
     const showPopin2 = () => {
-        const show = !togglePopin2;
-
-        if (togglePopin1) {
-            const hidden = !togglePopin1;
-
-            setTogglePopin1(hidden);
-        }
-
-        setTogglePopin2(show);
+        setPopin2(!popin2);
+        setPopin1(false);
     };
 
     return (
         <div className="Color-Selector">
             <h4>Header color</h4>
             <div className="text-color">
-                <div className="color-container">
-                    <h4>Color 1</h4>
-                    <div
-                        className="box-color-1"
-                        style={{ backgroundColor: `${backgroundeColor1 ? backgroundeColor1 : ''}` }}
-                        onClick={showPopin1}
-                        />
-                </div>
-                <div className="color-container">
-                    <h4>Color 2</h4>
-                    <div
-                        className="box-color-2"
-                        style={{ backgroundColor: `${backgroundeColor2 ? backgroundeColor2 : ''}` }}
-                        onClick={showPopin2}
-                        />
-                </div>
+                <BoxColor
+                    showPopin={showPopin1}
+                    title={title[0]}
+                    backgroundeColor={backgroundeColor1}
+                />
+                <BoxColor
+                    showPopin={showPopin2}
+                    title={title[0]}
+                    backgroundeColor={backgroundeColor2}
+                />
             </div>
-            <PopinColor1 show={togglePopin1} />
-            <PopinColor2 show={togglePopin2} />
+            <div className="Popin-ref" ref={ref1}>
+                <PopinColor
+                    show={popin1}
+                    dispatch={getColor1}
+                />
+                <PopinColor
+                    show={popin2}
+                    dispatch={getColor2}
+                />
+            </div>
         </div>
     );
-}
+};
 
-export default ColorSelector;
+const mapStateToProps = state => ({
+    backgroundeColor1: state.colorSelect1,
+    backgroundeColor2: state.colorSelect2,
+});
+
+const mapDispatchToProps = dispatch => ({
+
+    getColor1: props => dispatch(colorSelect1(props)),
+    getColor2: props => dispatch(colorSelect2(props)),
+
+});
+
+ColorSelector.propTypes = {
+    getColor1: PropTypes.func.isRequired,
+    getColor2: PropTypes.func.isRequired,
+    backgroundeColor1: PropTypes.string.isRequired,
+    backgroundeColor2: PropTypes.string.isRequired,
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(ColorSelector);

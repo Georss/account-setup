@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../PopinColor.css';
+import './PopinColor.css';
 
 const ColorPickerBackgrounde = ({
     color, index, getColorBackgrounde, backgroundeColor,

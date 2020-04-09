@@ -12,7 +12,7 @@ const Header = ({ blankProfile }) => {
     return (
         <div
             className="Header"
-            style={{ backgroundImage: `linear-gradient(to bottom, ${backgroundeColor1}, ${backgroundeColor2})` }}
+            style={{ backgroundImage: `linear-gradient(to right, ${backgroundeColor1}, ${backgroundeColor2})` }}
         >
             <div className="Header-Content">
                 <img className="Header-Image" src={image || blankProfile} alt="Profile" />

@@ -1,7 +1,7 @@
-const errorForm = (state = null, action) => {
+const errorForm = (state = false, action) => {
     switch (action.type) {
         case 'ERROR_FORM':
-            return state = action.props;
+            return action.props;
         default:
             return state;
     }

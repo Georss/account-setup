@@ -1,10 +1,10 @@
 .popin {
     position: absolute;
+    margin-left: 70px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    margin-left: 100px;
     padding-top: 5px;
     display: flex;
     flex-direction: row;

@@ -32,7 +32,7 @@ h5 {
 }
 /* HEADER */
 .Header {
-    background-image: linear-gradient(to top, #7e57c2, #5c6bc0);
+    background-image: linear-gradient(to right, #7e57c2, #5c6bc0);
 }
 .Header-Content {
     display: flex;
@@ -43,6 +43,7 @@ h5 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    word-break: break-all;
     margin-left: 30px;
 }
 /* DISPLAY-EMPLOYEE */
@@ -55,6 +56,7 @@ h5 {
     margin: 30px;
 }
 .Data-Employee {
+    word-break: break-all;
     margin-left: 30px;
 }
 

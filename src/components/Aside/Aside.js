@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { profileData } from '../../actions';
-import { errorForm } from '../../actions';
+import { profileData, errorForm } from '../../actions';
 import ImageUpload from './ImageUpload/ImageUpload';
 import ColorSelector from './ColorSelector/ColorSelector';
 import Name from './FormComponents/Name';
@@ -16,23 +16,23 @@ import './Aside.css';
 
 const maxChar = 'max 250 characters';
 
-const initialState = {
-    name: '',
-    description: '',
-    jobTitle: jobTitleData[0],
-    jobLevel: jobLevelData[0],
-    phone: '',
-    address: '',
-}
-
 class Aside extends Component {
+    constructor() {
+        super();
+        this.state = {
+            name: '',
+            description: '',
+            jobTitle: jobTitleData[0],
+            jobLevel: jobLevelData[0],
+            phone: '',
+            address: '',
+        };
+    }
 
-    state = initialState
-
-    change = e => {
+    change = (e) => {
         this.setState({
-            [e.target.name] : e.target.value
-        })
+            [e.target.name]: e.target.value,
+        });
     };
 
     validate = () => {
@@ -41,38 +41,39 @@ class Aside extends Component {
         let phoneError = false;
         let addressError = false;
 
-        if(!this.state.name) {
+        if (!this.state.name) {
             nameError = true;
         }
-        if(!this.state.description) {
+        if (!this.state.description) {
             descriptionError = true;
         }
-        if(!this.state.phone) {
+        if (!this.state.phone) {
             phoneError = true;
         }
 
-        if(!this.state.address) {
+        if (!this.state.address) {
             addressError = true;
         }
-        if(nameError || descriptionError || phoneError || addressError) {
+        if (nameError || descriptionError || phoneError || addressError) {
             this.props.formError(true);
+
             return false;
         }
 
         this.props.formError(false);
-        return true
+
+        return true;
     }
 
-    onSubmit = e => {
+    onSubmit = (e) => {
         e.preventDefault();
         const isValid = this.validate();
 
         if (isValid) {
             this.props.stateProfil(this.state);
-            this.setState(initialState);
         }
     };
-    
+
     render() {
         return (
             <div className="Aside-BG">
@@ -80,7 +81,7 @@ class Aside extends Component {
                     <h1 className="Account-setup">Account setup</h1>
                 </div>
                 <div className="Info-Account">
-                    <div className="Profil-Image-Color Rectangle">
+                    <div className="Profil-Image-Color">
                         <ImageUpload />
                         <ColorSelector />
                     </div>
@@ -127,14 +128,15 @@ class Aside extends Component {
     }
 }
 
-const mapDispatchToProps = dispatch =>  {
-    return {
-    stateProfil: (props) => 
-    dispatch(profileData(props)),
+const mapDispatchToProps = dispatch => ({
+    stateProfil: props => dispatch(profileData(props)),
 
-    formError: (props) =>
-    dispatch(errorForm(props))
-    }
-}
+    formError: props => dispatch(errorForm(props)),
+});
+
+Aside.propTypes = {
+    stateProfil: PropTypes.func.isRequired,
+    formError: PropTypes.func.isRequired,
+};
 
 export default connect(null, mapDispatchToProps)(Aside);

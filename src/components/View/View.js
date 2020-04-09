@@ -2,7 +2,6 @@ import React from 'react';
 import blankProfile from '../blank-profile-picture.png';
 import Header from './components/Header';
 import Preview from './components/Preview';
-import ErrorButton from './components/ErrorButton';
 import './View.css';
 
 const View = () => (
@@ -13,7 +12,6 @@ const View = () => (
         <Preview
             blankProfile={blankProfile}
         />
-        <ErrorButton />
     </div>
 );
 

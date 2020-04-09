@@ -1,32 +1,30 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import CloseIcon from '@material-ui/icons/Close';
 import { errorForm } from '../../../actions';
 
-class ErrorButton extends Component {
-    remove = () => {
-        this.props.closeBox(false);
+const ErrorButton = ({ closeBox, formError }) => {
+    const remove = () => {
+        closeBox(false);
+    };
+
+    if (formError) {
+        setTimeout(() => {
+            closeBox(false);
+        }, 5000);
     }
 
-    render() {
-        
-        if (this.props.formError) {
-            setTimeout(() => {
-                this.props.closeBox(false);
-            }, 5000);
-        }
-        
-        return (
-            <div
-                className={`Error-BG ${this.props.formError ? '' : 'Error-DP'}`}
-            >
-                <h5 className="Error-Text">All fields are required</h5>
-                <div className="Icon-Close">
-                    <CloseIcon style={{ color: '#ffffff' }} onClick={this.remove} />
-                </div>
+    return (
+        <div
+            className={`Error-BG ${formError ? '' : 'Error-DP'}`}
+        >
+            <h5 className="Error-Text">All fields are required</h5>
+            <div className="Icon-Close">
+                <CloseIcon style={{ color: '#ffffff' }} onClick={remove} />
             </div>
-        );
-    }
+        </div>
+    );
 };
 
 const mapStateToProps = state => ({
@@ -39,5 +37,10 @@ const mapDispatchToProps = dispatch => ({
     },
 
 });
+
+ErrorButton.propTypes = {
+    closeBox: PropTypes.func.isRequired,
+    formError: PropTypes.bool.isRequired,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ErrorButton);

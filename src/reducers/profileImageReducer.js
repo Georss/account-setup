@@ -1,7 +1,7 @@
-const profileImage = (state = null, action) => {
+const profileImage = (state = '', action) => {
     switch (action.type) {
         case 'UPLOAD_IMAGE':
-            return state = action.props;
+            return action.props;
         default:
             return state;
     }

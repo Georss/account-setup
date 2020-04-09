@@ -1,27 +1,27 @@
-import React, {Component} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { profileImage }from '../../../actions';
+import { profileImage } from '../../../actions';
 import blankProfile from '../../blank-profile-picture.png';
 
-class ImageUpload extends Component {
-    constructor() {
-        super();
-
-        this.getImage = this.getImage.bind(this);
-    
-        }
-    getImage = e => {
+const ImageUpload = ({ image, getImage }) => {
+    const Image = (e) => {
         if (e.target.files[0]) {
-            const image = URL.createObjectURL(e.target.files[0]);
+            const img = URL.createObjectURL(e.target.files[0]);
 
-            this.props.getImage(image);
+            getImage(img);
         }
     };
 
-    render(){
+    let fileInputRef;
+
     return (
         <div className="Image-Upload">
-            <img className="Account-Setup-Image" src={this.props.image ? this.props.image : blankProfile} alt="Profil" />
+            <img
+                className="Account-Setup-Image"
+                src={image || blankProfile}
+                alt="Profil"
+            />
             <div className="text-button-upload">
                 <div className="container">
                     <h3>Profile image</h3>
@@ -30,14 +30,15 @@ class ImageUpload extends Component {
                 <input
                     style={{ display: 'none' }}
                     type="file"
-                    onChange={this.getImage}
-                    ref={fileInput => this.fileInput = fileInput}
+                    onChange={Image}
+                    ref={(fileInput) => { fileInputRef = fileInput; }}
                 />
-                <div className="image-target" onClick={() => this.fileInput.click()}>
+                <div className="image-target" onClick={() => fileInputRef.click()}>
                     <div className="container uploade-image">
-                        <div 
-                        className="Button-Upload" 
-                        style={{backgroundColor: `${this.props.image ? '#1688ac' : ''}`}}>
+                        <div
+                            className="Button-Upload"
+                            style={{ backgroundColor: `${image ? '#1688ac' : ''}` }}
+                        >
                             <h4 className="Upload">Uploade</h4>
                         </div>
                     </div>
@@ -45,8 +46,7 @@ class ImageUpload extends Component {
             </div>
         </div>
     );
-}
-}
+};
 
 const mapStateToProps = state => ({
     image: state.profileImage,
@@ -57,5 +57,10 @@ const mapDispatchToProps = dispatch => ({
     getImage: props => dispatch(profileImage(props)),
 
 });
+
+ImageUpload.propTypes = {
+    getImage: PropTypes.func.isRequired,
+    image: PropTypes.string.isRequired,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ImageUpload);

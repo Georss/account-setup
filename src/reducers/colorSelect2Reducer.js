@@ -1,7 +1,7 @@
-const colorSelect2 = (state = null, action) => {
+const colorSelect2 = (state = '', action) => {
     switch (action.type) {
         case 'COLOR_SELECT_2':
-            return state = action.props;
+            return action.props;
         default:
             return state;
     }
