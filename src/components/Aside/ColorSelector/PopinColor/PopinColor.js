@@ -5,7 +5,7 @@ import ColorPickerBackgrounde from './ColorPickerBackgrounde';
 
 const colors = DataColors;
 
-function PopinColor({ show, dispatch}) {
+function PopinColor({ show, dispatch }) {
     const [colorBackgrounde, setColorBackgrounde] = useState('');
 
     const getColorBackgrounde = (e) => {
