@@ -61,7 +61,7 @@ const ColorSelector = ({
                 />
                 <BoxColor
                     showPopin={showPopin2}
-                    title={title[0]}
+                    title={title[1]}
                     backgroundeColor={backgroundeColor2}
                 />
             </div>
