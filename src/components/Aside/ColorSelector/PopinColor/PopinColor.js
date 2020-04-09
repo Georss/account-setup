@@ -38,11 +38,9 @@ function PopinColor({ show, dispatch}) {
     );
 }
 
-
-
 PopinColor.propTypes = {
     show: PropTypes.bool.isRequired,
-    // dispatch: PropTypes.func.isRequired,
+    dispatch: PropTypes.func.isRequired,
 };
 
 export default PopinColor;
