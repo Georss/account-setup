@@ -98,5 +98,5 @@ ColorSelector.propTypes = {
     backgroundeColor2: PropTypes.string.isRequired,
 };
 
-
 export default connect(mapStateToProps, mapDispatchToProps)(ColorSelector);
+
