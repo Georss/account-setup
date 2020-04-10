@@ -5,6 +5,7 @@ const Description = ({ description, change, maxChar }) => (
     <div className="Description">
         <h4>Description</h4>
         <textarea
+            type="text"
             rows="4"
             maxLength="250"
             name="description"

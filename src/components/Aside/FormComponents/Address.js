@@ -5,6 +5,7 @@ const Address = ({ address, change, maxChar }) => (
     <div className="Address">
         <h4>Address</h4>
         <textarea
+            type="text"
             rows="2"
             maxLength="250"
             name="address"

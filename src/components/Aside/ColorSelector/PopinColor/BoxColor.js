@@ -10,7 +10,7 @@ const BoxColor = ({
             role="button"
             tabIndex="0"
             className="box-color-1"
-            style={{ backgroundColor: `${backgroundeColor || ''}` }}
+            style={{ backgroundColor: backgroundeColor }}
             onClick={showPopin}
         />
     </div>

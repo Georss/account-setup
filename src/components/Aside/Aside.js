@@ -85,43 +85,45 @@ class Aside extends Component {
                         <ImageUpload />
                         <ColorSelector />
                     </div>
-                    <div className="Name-Description Rectangle">
-                        <Name
-                            name={this.state.name}
-                            change={this.change}
-                        />
-                        <Description
-                            description={this.state.description}
-                            change={this.change}
-                            maxChar={maxChar}
-                        />
-                    </div>
-                    <div className="Job-Info Rectangle">
-                        <JobTitle
-                            jobTitle={this.state.jobTitle}
-                            change={this.change}
-                            jobTitleData={jobTitleData}
-                        />
-                        <JobLevel
-                            jobLevel={this.state.jobLevel}
-                            change={this.change}
-                            jobLevelData={jobLevelData}
-                        />
-                    </div>
-                    <div className="Contact Rectangle">
-                        <Phone
-                            phone={this.state.phone}
-                            change={this.change}
-                        />
-                        <Address
-                            address={this.state.address}
-                            change={this.change}
-                            maxChar={maxChar}
-                        />
-                    </div>
+                    <form onSubmit={this.onSubmit} id="info-form">
+                        <div className="Name-Description Rectangle">
+                            <Name
+                                name={this.state.name}
+                                change={this.change}
+                            />
+                            <Description
+                                description={this.state.description}
+                                change={this.change}
+                                maxChar={maxChar}
+                            />
+                        </div>
+                        <div className="Job-Info Rectangle">
+                            <JobTitle
+                                jobTitle={this.state.jobTitle}
+                                change={this.change}
+                                jobTitleData={jobTitleData}
+                            />
+                            <JobLevel
+                                jobLevel={this.state.jobLevel}
+                                change={this.change}
+                                jobLevelData={jobLevelData}
+                            />
+                        </div>
+                        <div className="Contact Rectangle">
+                            <Phone
+                                phone={this.state.phone}
+                                change={this.change}
+                            />
+                            <Address
+                                address={this.state.address}
+                                change={this.change}
+                                maxChar={maxChar}
+                            />
+                        </div>
+                    </form>
                 </div>
                 <div className="Container-Button-Save">
-                    <ButtonSave onSubmit={this.onSubmit} />
+                    <ButtonSave />
                 </div>
             </div>
         );

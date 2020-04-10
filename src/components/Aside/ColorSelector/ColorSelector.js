@@ -61,18 +61,18 @@ const ColorSelector = ({
                 />
                 <BoxColor
                     showPopin={showPopin2}
-                    title={title[0]}
+                    title={title[1]}
                     backgroundeColor={backgroundeColor2}
                 />
             </div>
             <div className="Popin-ref" ref={ref1}>
                 <PopinColor
                     show={popin1}
-                    dispatch={getColor1}
+                    getColor={getColor1}
                 />
                 <PopinColor
                     show={popin2}
-                    dispatch={getColor2}
+                    getColor={getColor2}
                 />
             </div>
         </div>
@@ -97,6 +97,5 @@ ColorSelector.propTypes = {
     backgroundeColor1: PropTypes.string.isRequired,
     backgroundeColor2: PropTypes.string.isRequired,
 };
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(ColorSelector);

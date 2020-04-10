@@ -5,7 +5,7 @@ import ColorPickerBackgrounde from './ColorPickerBackgrounde';
 
 const colors = DataColors;
 
-function PopinColor({ show, dispatch}) {
+function PopinColor({ show, getColor }) {
     const [colorBackgrounde, setColorBackgrounde] = useState('');
 
     const getColorBackgrounde = (e) => {
@@ -13,7 +13,7 @@ function PopinColor({ show, dispatch}) {
         const color = colors[index];
 
         setColorBackgrounde(color);
-        dispatch(color);
+        getColor(color);
     };
 
     return (
@@ -38,11 +38,9 @@ function PopinColor({ show, dispatch}) {
     );
 }
 
-
-
 PopinColor.propTypes = {
     show: PropTypes.bool.isRequired,
-    // dispatch: PropTypes.func.isRequired,
+    getColor: PropTypes.func.isRequired,
 };
 
 export default PopinColor;
