@@ -25,9 +25,3 @@ const ButtonSave = () => {
         </div>
     );
 };
-
-ButtonSave.propTypes = {
-    // onSubmit: PropTypes.func.isRequired,
-};
-
-export default ButtonSave;
