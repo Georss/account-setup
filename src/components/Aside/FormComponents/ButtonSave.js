@@ -25,3 +25,5 @@ const ButtonSave = () => {
         </div>
     );
 };
+
+export default ButtonSave;
